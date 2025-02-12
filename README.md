@@ -32,8 +32,32 @@ sudo systemctl stop newrelic-infra
 sudo systemctl disable newrelic-infra
 sudo yum remove newrelic-infra -y
 
-################ Disable Logs Forwarding ################
+################ uninstalling new-relic ################
 
-sudo vim /opt/newrelic/newrelic.yml
+ps aux | grep newrelic
+
+sudo find / -name "*newrelic*" 2>/dev/null
+
+sudo yum remove newrelic-infra -y
+
+
+sudo rm -rf /etc/yum.repos.d/newrelic-infra.repo
+sudo rm -rf /etc/newrelic-infra.yml
+sudo rm -rf /etc/newrelic-infra
+sudo rm -rf /var/cache/dnf/newrelic-infra*
+sudo rm -rf /var/db/newrelic-infra
+sudo rm -rf /opt/newrelic-infra
+sudo rm -f /usr/local/bin/newrelic
+sudo rm -rf /root/.newrelic
+
+sudo systemctl daemon-reload
+
+find / -name "*newrelic*" 2>/dev/null
+
+
+######################### Installing newrelic agent manually for java app only ######################
+
+
+
 
 
